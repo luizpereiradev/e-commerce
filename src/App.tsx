@@ -1,7 +1,11 @@
-import "./App.css";
+import Section1 from "./components/section-1-Pedro/Section-1";
 
 function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <div>
+      <Section1 />
+    </div>
+  )
 }
 
 export default App;
