@@ -4,7 +4,7 @@ import OfferSection from "./components/offers-section/OfferSection";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App m-auto max-w-5xl">
       <OfferSection />
       <CategorySection />
     </div>

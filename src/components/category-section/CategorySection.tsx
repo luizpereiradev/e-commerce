@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import useWindowDimensions from "../../hooks/useWindowsDimension";
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
-import 'swiper/css';
+import "swiper/css";
 import "swiper/css/pagination";
 import ProductCard from "./ProductCard";
 // import required modules
@@ -22,21 +22,44 @@ function CategorySection() {
   }, [width]);
 
   return (
-    <section className='mt-5'>
-      <div className='bg-white'>
-        <h2 className='text-black font-medium p-3 text-xl'>Consumer electronics</h2>
+    <section className="lg:flex lg:flex-row lg:w-full mt-3 lg:h-64 overflow-hidden rounded-lg">
+      <div className="hidden relative lg:block w-[47.4%] bg-[url('./img/electronics.png')] bg-cover">
+
+        <div className="flex flex-col w-[70%] p-4 gap-5 relative z-10">
+          <h2 className="text-black font-medium text-xl">
+            Consumer electronics and gadgets
+          </h2>
+          <button className="bg-white text-black rounded-xl w-32 py-2">Source now</button>
+        </div>
+        <div className="absolute w-full h-full bg-white opacity-30 top-0"></div>
       </div>
-      <div className="lg:w-4/5">
-        <Swiper slidesPerView={slidesPerView}>
-          { Array(10).fill('').map((item, x) => (
-          <SwiperSlide key={ x }>
-            <ProductCard />
-          </SwiperSlide>
-          )) }
-        </Swiper>
-      </div>
-      <div className='bg-white border-b-[1px]'>
-        <h3 className='text-blue-500 p-3 text-lg'>Source now →</h3>
+      <div className="lg:flex">
+        <div className="bg-white lg:hidden">
+          <h2 className="text-black font-medium p-3 text-xl">
+            Consumer electronics
+          </h2>
+        </div>
+        <div className="hidden lg:flex flex-wrap">
+          {Array(8)
+            .fill("")
+            .map((item, x) => (
+              <ProductCard />
+            ))}
+        </div>
+        <div className="lg:hidden">
+          <Swiper slidesPerView={slidesPerView}>
+            {Array(8)
+              .fill("")
+              .map((item, x) => (
+                <SwiperSlide key={x}>
+                  <ProductCard />
+                </SwiperSlide>
+              ))}
+          </Swiper>
+        </div>
+        <div className="bg-white border-b-[1px] lg:hidden">
+          <h3 className="text-blue-500 p-3 text-lg">Source now →</h3>
+        </div>
       </div>
     </section>
   );
