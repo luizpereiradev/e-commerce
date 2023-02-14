@@ -1,10 +1,12 @@
 // import "./App.css";
-import SecondSection from "./components/section-2-bruno/SecondSection";
+import CategorySection from "./components/category-section/CategorySection";
+import OfferSection from "./components/offers-section/OfferSection";
 
 function App() {
   return (
     <div className="App">
-      <SecondSection />
+      <OfferSection />
+      <CategorySection />
     </div>
   ) 
   // <h1 className="text-3xl font-bold underline">Hello world!</h1>;

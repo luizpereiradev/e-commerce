@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import Countdown from "./Countdown";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -6,9 +6,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import "swiper/css/pagination";
 // import required modules
-import { Pagination } from "swiper";
+import useWindowDimensions from "../../hooks/useWindowsDimension";
 import SwiperProducts from "./SwiperProducts";
-import useWindowDimensions  from "../../hooks/useWindowsDimension";
 
 
 export default function SecondSection() {
@@ -35,23 +34,21 @@ export default function SecondSection() {
                 <Countdown />
             </div>
             <div className="lg:w-4/5">
-            <Swiper
-                slidesPerView={slidesPerView}
-                modules={[Pagination]}
-                className="mySwiper"
-            >
-                <SwiperSlide><SwiperProducts/></SwiperSlide>
-                <SwiperSlide><SwiperProducts/></SwiperSlide>
-                <SwiperSlide><SwiperProducts/></SwiperSlide>
-                <SwiperSlide><SwiperProducts/></SwiperSlide>
-                <SwiperSlide><SwiperProducts/></SwiperSlide>
-                <SwiperSlide><SwiperProducts/></SwiperSlide>
-                <SwiperSlide><SwiperProducts/></SwiperSlide>
-                <SwiperSlide><SwiperProducts/></SwiperSlide>
-                <SwiperSlide><SwiperProducts/></SwiperSlide>
-                <SwiperSlide><SwiperProducts/></SwiperSlide>
-                <SwiperSlide><SwiperProducts/></SwiperSlide>
-            </Swiper>
+              <Swiper
+                  slidesPerView={slidesPerView}
+              >
+                  <SwiperSlide><SwiperProducts/></SwiperSlide>
+                  <SwiperSlide><SwiperProducts/></SwiperSlide>
+                  <SwiperSlide><SwiperProducts/></SwiperSlide>
+                  <SwiperSlide><SwiperProducts/></SwiperSlide>
+                  <SwiperSlide><SwiperProducts/></SwiperSlide>
+                  <SwiperSlide><SwiperProducts/></SwiperSlide>
+                  <SwiperSlide><SwiperProducts/></SwiperSlide>
+                  <SwiperSlide><SwiperProducts/></SwiperSlide>
+                  <SwiperSlide><SwiperProducts/></SwiperSlide>
+                  <SwiperSlide><SwiperProducts/></SwiperSlide>
+                  <SwiperSlide><SwiperProducts/></SwiperSlide>
+              </Swiper>
             </div>
         </div>
     );
