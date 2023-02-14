@@ -22,13 +22,13 @@ function CartDrop() {
     </label>
     <div
       tabIndex={0}
-      className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow"
+      className="mt-3 card card-compact dropdown-content w-52 bg-white shadow"
     >
       <div className="card-body">
         <span className="font-bold text-lg">8 Items</span>
         <span className="text-info">Subtotal: $999</span>
         <div className="card-actions">
-          <button className="btn btn-primary btn-block">View cart</button>
+          <button className="btn btn-primary bg-blue-500 hover:bg-blue-400 border-none btn-block">View cart</button>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@ function CartDrop() {
   <div className="dropdown dropdown-end">
     <ul
       tabIndex={0}
-      className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+      className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white rounded-box w-52"
     >
       <li>
         <a className="justify-between">
