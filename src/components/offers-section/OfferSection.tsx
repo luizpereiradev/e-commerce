@@ -26,7 +26,7 @@ export default function SecondSection() {
 
     return (
         <div className="lg:flex rounded-lg overflow-hidden border-gray-200 border-[1px] w-full lg:h-56 sm:text-xl">
-            <div className="lg:w-[256px] lg:flex-col flex items-center bg-white px-3 sm:px-10 lg:px-3">
+            <div className="lg:w-[256px] lg:flex-col flex items-center bg-white px-3 sm:px-10 lg:px-4 lg:gap-2 ">
                 <div className=" flex w-1/2 lg:w-full h-24 flex-col justify-center">
                     <p className="font-bold text-black lg:text-lg">Deals and Offer</p>
                     <h1 className="font-light text-base text-gray-500">Second Section</h1>
