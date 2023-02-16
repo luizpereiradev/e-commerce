@@ -1,7 +1,8 @@
 import CartDrop from "./CartDrop";
 import { FiArchive, FiHeart, FiHome, FiMenu } from "react-icons/fi";
 import SearchInput from "./SearchInput";
-import Logo from "../../img/compra-certa.svg"
+import Logo from "../../img/compra-certa.svg";
+import Footer from "../footer/Footer";
 function Header({ children }: { children: React.ReactNode }) {
   const categories = [
     "All",
@@ -48,7 +49,7 @@ function Header({ children }: { children: React.ReactNode }) {
               </label>
             </div>
             <div className="flex-1">
-            <img className="w-24 mx-2" src={Logo} />
+              <img className="w-24 mx-2" src={Logo} />
             </div>
             <div className="hidden lg:block mr-[15%]">
               <SearchInput categories={categories} />
@@ -81,7 +82,10 @@ function Header({ children }: { children: React.ReactNode }) {
             </div>
           </div>
         </div>
-        <div className="max-w-5xl mx-auto w-screen pt-10">{children}</div>
+        <div>
+          <div className="max-w-5xl mx-auto w-screen pt-10">{children}</div>
+          <Footer />
+        </div>
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
