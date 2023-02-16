@@ -3,7 +3,8 @@ import Header from "./components/header/Header";
 import OfferSection from "./components/offers-section/OfferSection";
 import Recommended from "./components/recommended-section/Recommended";
 import MainSection from "./components/main-section/MainSection";
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/footer/Footer";
+import Newsletter from "./components/newsletter/Newsletter";
 
 function App() {
   return (
@@ -15,7 +16,6 @@ function App() {
         <CategorySection />
         <Recommended />
       </Header>
-      <Footer />
     </>
   );
 }
