@@ -3,6 +3,7 @@ import Header from "./components/header/Header";
 import OfferSection from "./components/offers-section/OfferSection";
 import Recommended from "./components/recommended-section/Recommended";
 import MainSection from "./components/main-section/MainSection";
+import Filters from "./components/filters-section/Filters";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <CategorySection />
       <CategorySection />
       <Recommended />
+      <Filters />
     </Header>
   )
 }
