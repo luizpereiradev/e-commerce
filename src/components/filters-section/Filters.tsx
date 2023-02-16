@@ -40,13 +40,27 @@ export default function Filters() {
               <BsFilterLeft size={20} className=" absolute top-1 right-0.5" />
               <ul
                 tabIndex={0}
-                className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+                className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40"
               >
-                <li>
+                <li className="flex items-center flex-row">
                   <a>Item 1</a>
+                  <input type="checkbox" className="mr-2" />
                 </li>
-                <li>
+                <li className="flex items-center flex-row">
                   <a>Item 2</a>
+                  <input type="checkbox" className="mr-2" />
+                </li>
+                <li className="flex items-center flex-row">
+                  <a>Item 3</a>
+                  <input type="checkbox" className="mr-2" />
+                </li>
+                <li className="flex items-center flex-row">
+                  <a>Item 4</a>
+                  <input type="checkbox" className="mr-2" />
+                </li>
+                <li className="flex items-center flex-row">
+                  <a>Item 5</a>
+                  <input type="checkbox" className="mr-2" />
                 </li>
               </ul>
             </div>
@@ -57,7 +71,7 @@ export default function Filters() {
               <GrFilter size={15} className=" absolute top-1.5 right-1.5" />
               <ul
                 tabIndex={0}
-                className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+                className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40"
               >
                 <li>
                   <a>Item 1</a>
