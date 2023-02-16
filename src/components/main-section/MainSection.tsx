@@ -50,6 +50,7 @@ function MainSection() {
                 setActualCategory(i);
                 slideTo(i)
               }}
+              key={`${i}main`}
               className={`
                     cursor-pointer
                     text-base
@@ -86,8 +87,8 @@ function MainSection() {
           modules={[EffectFade, Autoplay]}
           className="mySwiper"
         >
-          {categories.map((category) => (
-            <SwiperSlide>
+          {categories.map((category, i) => (
+            <SwiperSlide key={`${i}mainn`}>
               <Image category={category}/>
             </SwiperSlide>
           ))}

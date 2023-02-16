@@ -13,7 +13,7 @@ function SearchInput({ categories }: { categories: string[]}) {
           Categories
         </option>
         {categories.map((category) => (
-          <option key={category}>{category}</option>
+          <option key={category + 1}>{category}</option>
         ))}
       </select>
       <button className="btn bg-blue-500 border-none hover:bg-blue-400">

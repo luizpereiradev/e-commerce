@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useWindowDimensions from "../../hooks/useWindowsDimension";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -42,16 +43,22 @@ function CategorySection() {
         <div className="hidden lg:flex flex-wrap">
           {Array(8)
             .fill("")
-            .map((item, x) => (
-              <ProductCard />
+            .map((_, x) => (
+              <ProductCard key={x} />
             ))}
         </div>
         <div className="lg:hidden">
-          <Swiper slidesPerView={slidesPerView}>
+          <Swiper
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          modules={[Autoplay]}
+          slidesPerView={slidesPerView}>
             {Array(8)
               .fill("")
-              .map((item, x) => (
-                <SwiperSlide key={x}>
+              .map((_, x) => (
+                <SwiperSlide key={`${x}category`}>
                   <ProductCard />
                 </SwiperSlide>
               ))}

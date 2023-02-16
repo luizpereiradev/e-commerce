@@ -7,8 +7,8 @@ export default function Recommended() {
       <div className="grid gap-3 lg:gap-x-5 w-full grid-auto-fit-[165px] lg:grid-auto-fit-[240px]">
       {Array(8)
         .fill("")
-        .map(() => (
-            <RecommendedCard />
+        .map((_,x) => (
+            <RecommendedCard key={`${x}recommended`}/>
             ))}
       </div>
     </div>
