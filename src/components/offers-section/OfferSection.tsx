@@ -21,7 +21,6 @@ export default function SecondSection() {
     const [slidesPerView, setSlidesPerView] = useState(getSlidesPerViews());
     useEffect(() => {
         setSlidesPerView(getSlidesPerViews());
-        console.log(slidesPerView)
     }, [width])
 
     return (
