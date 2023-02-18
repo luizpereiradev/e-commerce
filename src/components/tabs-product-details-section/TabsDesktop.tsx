@@ -63,7 +63,7 @@ export default function Tabs() {
           <span
             className={toggleState === 4 ? "text-blue-400" : "text-gray-400"}
           >
-            About Company
+            About
           </span>
         </button>
       </div>
@@ -132,10 +132,47 @@ export default function Tabs() {
         >
           <h2>Content 2</h2>
           <hr />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-            voluptatum qui adipisci.
-          </p>
+          <div className="flex pt-2">
+            <div className="avatar gap-2 items-center">
+              <div className="w-10 rounded">
+                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+              </div>
+              <p>User Name</p>
+            </div>
+              <div className="rating pl-2 items-center">
+                <input
+                  type="radio"
+                  name="rating-2"
+                  className="mask mask-star-2 bg-orange-400"
+                />
+                <input
+                  type="radio"
+                  name="rating-2"
+                  className="mask mask-star-2 bg-orange-400"
+                  checked
+                />
+                <input
+                  type="radio"
+                  name="rating-2"
+                  className="mask mask-star-2 bg-orange-400"
+                />
+                <input
+                  type="radio"
+                  name="rating-2"
+                  className="mask mask-star-2 bg-orange-400"
+                />
+                <input
+                  type="radio"
+                  name="rating-2"
+                  className="mask mask-star-2 bg-orange-400"
+                />
+              </div>
+          </div>
+          <div className="w-full pt-2">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+              Quos debitis alias ullam assumenda nemo animi exercitationem natus non illum et, 
+              ipsa recusandae doloribus rerum doloremque sed vitae dolores provident blanditiis?</p>
+          </div>
         </div>
 
         <div
