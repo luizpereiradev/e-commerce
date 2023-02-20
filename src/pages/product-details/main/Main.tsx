@@ -1,4 +1,5 @@
-import { MdOutlineMessage, MdOutlineShoppingBasket, MdOutlineFavoriteBorder } from "react-icons/md";
+import { MdOutlineMessage, MdOutlineShoppingBasket, MdOutlineFavoriteBorder, MdArrowForwardIos, MdVerified, MdOutlineLocalShipping } from "react-icons/md";
+import { GiBrazilFlag } from "react-icons/gi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -30,14 +31,14 @@ function Main() {
             <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" checked />
             <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
           </div>
-          <div><p className="flex items-center gap-1 text-sm font-light text-gray-500"><MdOutlineMessage size={18} />32 reviews</p></div>
-          <div><p className="flex items-center gap-1 text-sm font-light text-gray-500"><MdOutlineShoppingBasket size={18} />154 sold</p></div>
+          <div><p className="flex items-center gap-1 text-sm font-light text-gray-500"><MdOutlineMessage size={18} />32 avaliações</p></div>
+          <div><p className="flex items-center gap-1 text-sm font-light text-gray-500"><MdOutlineShoppingBasket size={18} />154 vendidos</p></div>
         </div>
         <h3 className="text-gray-700 pt-2">Samsung Galaxy A32 Dual Sim 128 Gb Branco 4 Gb Ram</h3>
         <span className="flex items-center gap-2 pt-1"><h3 className="text-red-500 font-medium">R$1.471,08</h3><p className="font-light text-sm text-gray-400">(50-100 un)</p></span>
         <div className="flex items-center gap-2 pt-2">
           <button className="bg-blue-500 rounded-md py-1 px-auto w-full text-white">Adicionar ao carrinho</button>
-          <div className="border-solid border-gray-200 border-[1.5px] p-1.5 rounded-md "><MdOutlineFavoriteBorder color="#0086ff" size={20} /></div>
+          <div className="border-solid border-gray-200 border-[1.5px] p-1.5 rounded-md"><MdOutlineFavoriteBorder color="#0086ff" size={20} /></div>
         </div>
         <div className="flex items-center justify-start gap-12">
           <p className="flex flex-col pt-4 gap-1">
@@ -59,7 +60,21 @@ function Main() {
           <span className="text-blue-500 block pt-1 font-medium">Ler mais</span>
         </div>
       </div>
-      <div></div>
+      <div className="flex flex-col bg-white p-3 m-3 border-solid border-gray-200 border-[1px] rounded-lg">
+        <div className="flex items-center justify-between w-full">
+          <div className="flex gap-3 items-center">
+            <picture className="bg-teal-100 text-teal-300 text-3xl rounded-md py-3 px-4">N</picture>
+            <p className="font-light text-gray-700"><span>Vendedor</span><br /><span>Next Smartphones</span></p>
+          </div>
+          <div><MdArrowForwardIos size={20} /></div>
+        </div>
+        <hr className="w-full my-3" />
+        <div className="flex items-center justify-between text-gray-700 font-light">
+          <p className="flex items-center gap-1"><GiBrazilFlag size={22} /><span>Tubarão - SC</span></p>
+          <p className="flex items-center gap-1"><MdVerified size={22} /><span>Verificado</span></p>
+          <p className="flex items-center gap-1"><MdOutlineLocalShipping size={22} /><span>Frete grátis</span></p>
+        </div>
+      </div>
     </section>
   );
 }
