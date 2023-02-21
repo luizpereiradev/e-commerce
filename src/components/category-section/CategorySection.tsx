@@ -10,7 +10,7 @@ import ProductCard from "./ProductCard";
 // import required modules
 import {getProductsFromCategoryAndQuery} from '../../services/categories'
 
-function CategorySection({ category } : { category: string }) {
+function CategorySection({ category, placeholder } : { category: string, placeholder: string }) {
   const { width } = useWindowDimensions();
   const [products, setProducts] = useState([]);
   const getSlidesPerViews = () => {
@@ -36,7 +36,7 @@ function CategorySection({ category } : { category: string }) {
 
         <div className="flex flex-col w-[70%] p-4 gap-5 relative z-10">
           <h2 className="text-black font-medium text-xl">
-            Consumer electronics and gadgets
+            {placeholder}
           </h2>
           <button className="bg-white text-black rounded-xl w-32 py-2">Source now</button>
         </div>
@@ -45,7 +45,7 @@ function CategorySection({ category } : { category: string }) {
       <div className="lg:flex">
         <div className="bg-white lg:hidden">
           <h2 className="text-black font-medium p-3 text-xl">
-            Consumer electronics
+            {placeholder}
           </h2>
         </div>
         <div className="hidden lg:flex flex-wrap">

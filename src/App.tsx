@@ -12,8 +12,8 @@ function App() {
       <Header>
         <MainSection />
         <OfferSection />
-        <CategorySection category="MLB1055"/>
-        <CategorySection />
+        <CategorySection placeholder="Celulares e Telefones" category="MLB1055"/>
+        <CategorySection placeholder="Eletrodomésticos" category="MLB5726" />
         <Recommended />
       </Header>
     </>
