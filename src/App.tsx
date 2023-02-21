@@ -12,7 +12,7 @@ function App() {
       <Header>
         <MainSection />
         <OfferSection />
-        <CategorySection />
+        <CategorySection category="MLB1055"/>
         <CategorySection />
         <Recommended />
       </Header>

@@ -8,9 +8,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 import ProductCard from "./ProductCard";
 // import required modules
+import {getProductsFromCategoryAndQuery} from '../../services/categories'
 
-function CategorySection() {
+function CategorySection({ category } : { category: string }) {
   const { width } = useWindowDimensions();
+  const [products, setProducts] = useState([]);
   const getSlidesPerViews = () => {
     if (width <= 320) return 2;
     if (width <= 640) return 3;
@@ -22,6 +24,12 @@ function CategorySection() {
     setSlidesPerView(getSlidesPerViews());
   }, [width]);
 
+  useEffect(() => {
+    getProductsFromCategoryAndQuery(category)
+    .then((data) => setProducts(data.results))
+  },[])
+
+  console.log(products)
   return (
     <section className="lg:flex lg:flex-row lg:w-full mt-3 lg:h-64 overflow-hidden rounded-lg">
       <div className="hidden relative lg:block w-[47.4%] bg-[url('./img/electronics.png')] bg-cover">
@@ -41,10 +49,10 @@ function CategorySection() {
           </h2>
         </div>
         <div className="hidden lg:flex flex-wrap">
-          {Array(8)
-            .fill("")
-            .map((_, x) => (
-              <ProductCard key={x} />
+          {/* //renderizar apenas 8 produtos */}
+          {products.slice(0, 8)
+            .map((product, x) =>(
+              <ProductCard product={product} key={x} />
             ))}
         </div>
         <div className="lg:hidden">
@@ -55,11 +63,9 @@ function CategorySection() {
           }}
           modules={[Autoplay]}
           slidesPerView={slidesPerView}>
-            {Array(8)
-              .fill("")
-              .map((_, x) => (
+            {products.slice(0, 8).map((product, x) => (
                 <SwiperSlide key={`${x}category`}>
-                  <ProductCard />
+                  <ProductCard product={product} key={x} />
                 </SwiperSlide>
               ))}
           </Swiper>
