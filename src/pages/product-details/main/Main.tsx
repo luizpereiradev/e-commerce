@@ -7,10 +7,11 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import "swiper/css/free-mode";
 import { Pagination, Navigation, FreeMode, Thumbs } from "swiper";
-import { useState } from "react";
+import React, { useState } from "react";
+import { Swiper as TypeSwiper } from "swiper/types";
 
 function Main() {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState<TypeSwiper>();
 
   return (
     <section className="flex flex-col lg:justify-between md:mx-3 lg:mx-1 md:flex-row md:shadow md:rounded-lg md:overflow-hidden bg-white">
@@ -32,7 +33,7 @@ function Main() {
           style={{
             "--swiper-navigation-color": "#555",
             "--swiper-pagination-color": "#555",
-          }}
+          } as React.CSSProperties}
           spaceBetween={10}
           navigation={true}
           thumbs={{ swiper: thumbsSwiper }}
