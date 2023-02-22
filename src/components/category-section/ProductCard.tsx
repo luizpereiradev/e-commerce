@@ -10,7 +10,7 @@ function ProductCard({ product } : { product: {
       <div className="lg:w-[113px]">
         <h5 className="lg:w-full md:w-48 w-28 font-normal text-black text-sm truncate">{product.title}
 </h5>
-        <p className="text-center lg:text-start font-light text-gray-500 text-sm">Preço R$ {product.price}</p>
+        <p className="text-center lg:text-start font-light text-gray-500 text-sm">Preço R${product.price}</p>
       </div>
     </article>
   );
