@@ -4,60 +4,62 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import "swiper/css/thumbs";
 import "swiper/css/free-mode";
-import { Pagination, Navigation, FreeMode, Thumbs } from "swiper";
+import { Pagination, Navigation, FreeMode } from "swiper";
 import React, { useState } from "react";
 import { Swiper as TypeSwiper } from "swiper/types";
 
 function Main() {
+  const [readMore, setReadMore] = useState(false);
+  const [actualImg, setActualImg] = useState(0);
   const [thumbsSwiper, setThumbsSwiper] = useState<TypeSwiper>();
+  const slideTo = (index: number) => thumbsSwiper?.slideTo(index);
+  
+  const pictures = ["https://http2.mlstatic.com/D_690274-MLA48158423061_112021-O.jpg", "https://http2.mlstatic.com/D_970860-MLA48158406393_112021-O.jpg", "https://http2.mlstatic.com/D_917911-MLA48158357875_112021-O.jpg", "https://http2.mlstatic.com/D_693754-MLA48158406397_112021-O.jpg"];
 
   return (
     <section className="flex flex-col lg:justify-between md:mx-3 lg:mx-1 md:flex-row md:shadow md:rounded-lg md:overflow-hidden bg-white">
-      <div className="md:hidden">
+      <div className="md:hidden select-none">
         <Swiper
           pagination={{ type: "fraction" }}
           navigation={true}
           modules={[Pagination, Navigation]}
           className="mainSwiper"
         >
-          <SwiperSlide className="flex items-center justify-center bg-white"><img className="h-72 mb-5" src="https://http2.mlstatic.com/D_690274-MLA48158423061_112021-O.jpg" alt="Product Image" /></SwiperSlide>
-          <SwiperSlide className="flex items-center justify-center bg-white"><img className="h-72 mb-5" src="https://http2.mlstatic.com/D_970860-MLA48158406393_112021-O.jpg" alt="Product Image" /></SwiperSlide>
-          <SwiperSlide className="flex items-center justify-center bg-white"><img className="h-72 mb-5" src="https://http2.mlstatic.com/D_917911-MLA48158357875_112021-O.jpg" alt="Product Image" /></SwiperSlide>
-          <SwiperSlide className="flex items-center justify-center bg-white"><img className="h-72 mb-5" src="https://http2.mlstatic.com/D_693754-MLA48158406397_112021-O.jpg" alt="Product Image" /></SwiperSlide>
+          {pictures.map((img) => (
+            <SwiperSlide className="flex items-center justify-center bg-white"><img className="h-72 mb-5" src={img} alt="Product Image" /></SwiperSlide>
+          ))}
         </Swiper>
       </div>
-      <div className="hidden bg-white md:block w-72 p-2">
+      <div className="hidden bg-white md:block w-72 p-2 select-none">
         <Swiper
           style={{
-            "--swiper-navigation-color": "#555",
-            "--swiper-pagination-color": "#555",
+            "--swiper-navigation-color": "#aaa",
+            "--swiper-pagination-color": "#aaa",
           } as React.CSSProperties}
           spaceBetween={10}
           navigation={true}
-          thumbs={{ swiper: thumbsSwiper }}
-          modules={[FreeMode, Navigation, Thumbs]}
+          onSwiper={setThumbsSwiper}
+          modules={[FreeMode, Navigation]}
           className="mySwiper bg-white h-72"
+          onNavigationNext={ () => setActualImg(actualImg + 1)}
+          onNavigationPrev={ () => setActualImg(actualImg - 1)}
         >
-          <SwiperSlide className="flex items-center justify-center"><img className="h-64" src="https://http2.mlstatic.com/D_690274-MLA48158423061_112021-O.jpg" alt="Product Image" /></SwiperSlide>
-          <SwiperSlide className="flex items-center justify-center"><img className="h-64" src="https://http2.mlstatic.com/D_970860-MLA48158406393_112021-O.jpg" alt="Product Image" /></SwiperSlide>
-          <SwiperSlide className="flex items-center justify-center"><img className="h-64" src="https://http2.mlstatic.com/D_917911-MLA48158357875_112021-O.jpg" alt="Product Image" /></SwiperSlide>
-          <SwiperSlide className="flex items-center justify-center"><img className="h-64" src="https://http2.mlstatic.com/D_693754-MLA48158406397_112021-O.jpg" alt="Product Image" /></SwiperSlide>
+          {pictures.map((img) => (
+            <SwiperSlide className="flex items-center justify-center"><img className="h-64" src={img} alt="Product Image" /></SwiperSlide>
+          ))}
         </Swiper>
         <Swiper
-        onSwiper={setThumbsSwiper}
         spaceBetween={10}
         slidesPerView={4}
         freeMode={true}
         watchSlidesProgress={true}
-        modules={[FreeMode, Navigation, Thumbs]}
+        modules={[FreeMode, Navigation]}
         className="mySwiper mt-3"
       >
-          <SwiperSlide className=" bg-white rounded-md py-1.5 flex justify-center border-solid border-[1px]"><img className="h-12" src="https://http2.mlstatic.com/D_690274-MLA48158423061_112021-O.jpg" alt="Product Image" /></SwiperSlide>
-          <SwiperSlide className=" bg-white rounded-md py-1.5 flex justify-center border-solid border-[1px]"><img className="h-12" src="https://http2.mlstatic.com/D_970860-MLA48158406393_112021-O.jpg" alt="Product Image" /></SwiperSlide>
-          <SwiperSlide className=" bg-white rounded-md py-1.5 flex justify-center border-solid border-[1px]"><img className="h-12" src="https://http2.mlstatic.com/D_917911-MLA48158357875_112021-O.jpg" alt="Product Image" /></SwiperSlide>
-          <SwiperSlide className=" bg-white rounded-md py-1.5 flex justify-center border-solid border-[1px]"><img className="h-12" src="https://http2.mlstatic.com/D_693754-MLA48158406397_112021-O.jpg" alt="Product Image" /></SwiperSlide>
+          {pictures.map((img, i) => (
+            <SwiperSlide onClick={() => { setActualImg(i); slideTo(i); }} className={` bg-white rounded-md py-1.5 flex justify-center border-solid border-[1px] ${actualImg === i && 'border-blue-500 boder-[2px]'}`}><img className="h-12" src={img} alt="Product Image" /></SwiperSlide>
+          ))}
         </Swiper>
       </div>
       <div className="p-3 bg-white shadow md:shadow-none lg:w-[45%]">
@@ -80,7 +82,7 @@ function Main() {
           <button className="bg-blue-500 rounded-md py-1 px-auto w-full text-white">Adicionar ao carrinho</button>
           <div className="border-solid border-gray-200 border-[1.5px] p-1.5 rounded-md"><MdOutlineFavoriteBorder color="#0086ff" size={20} /></div>
         </div>
-        <div className="flex items-center justify-start gap-12">
+        <div className={`flex items-center justify-start gap-12 ${readMore && 'hidden'}`}>
           <p className="flex flex-col pt-4 gap-1">
             <span className="text-gray-400 font-light">Condição</span>
             <span className="text-gray-400 font-light">Material</span>
@@ -95,9 +97,9 @@ function Main() {
           </p>
         </div>
         <div className="pt-4">
-          <p className="text-gray-700 font-light line-clamp-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam odit cum beatae iste, expedita aliquid qui facere tempore praesentium nulla quibusdam nesciunt distinctio nisi iure incidunt esse et nobis accusamus.
+          <p className={`text-gray-700 font-light overflow-auto h-[194px] ${!readMore && 'line-clamp-3 h-[70px]'}`}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur mollitia iusto pariatur ducimus sequi dolor, sit commodi temporibus. Repudiandae iste ex repellat animi quod commodi nisi tenetur consequuntur, qui eligendi earum dolores nemo eaque vero sequi impedit veritatis cumque sit debitis error ea sapiente! Facilis aspernatur id tenetur magnam, iusto praesentium mollitia. Aut minus facilis dicta dolores quibusdam a, cum sequi. ipsum dolor sit amet consectetur adipisicing elit. Consequatur mollitia iusto pariatur ducimus sequi dolor, sit commodi temporibus. Repudiandae iste ex repellat animi quod commodi nisi tenetur consequuntur, qui eligendi earum dolores nemo eaque vero sequi impedit veritatis cumque sit debitis error ea sapiente! Facilis aspernatur id tenetur magnam, iusto praesentium mollitia. Aut minus facilis dicta dolores quibusdam a, cum sequi.
           </p>
-          <span className="text-blue-500 block pt-1 font-medium">Ler mais</span>
+          <span onClick={() => setReadMore(!readMore)} className="text-blue-500 block pt-1 font-medium cursor-pointer hover:text-blue-800 select-none">{!readMore ? 'Ler mais' : 'Ler menos'}</span>
         </div>
       </div>
       <div className="flex flex-col bg-white p-3 m-3 lg:h-max border-solid border-gray-200 border-[1px] rounded-lg md:hidden lg:flex">
