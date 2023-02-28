@@ -7,9 +7,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay } from "swiper";
 // import required modules
-import useWindowDimensions from "../../hooks/useWindowsDimension";
+import useWindowDimensions from "../../../hooks/useWindowsDimension";
 import SwiperProducts from "./SwiperProducts";
-import { getProductsFromCategoryAndQuery } from "../../services/categories";
+import { getProductsFromCategoryAndQuery } from "../../../services/categories";
 
 export default function SecondSection() {
   const { width } = useWindowDimensions();

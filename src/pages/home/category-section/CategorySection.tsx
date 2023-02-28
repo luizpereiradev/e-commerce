@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useWindowDimensions from "../../hooks/useWindowsDimension";
+import useWindowDimensions from "../../../hooks/useWindowsDimension";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import ProductCard from "./ProductCard";
 // import required modules
-import {getProductsFromCategoryAndQuery} from '../../services/categories'
+import {getProductsFromCategoryAndQuery} from '../../../services/categories'
 
 function CategorySection({ category, placeholder } : { category: string, placeholder: string }) {
   const { width } = useWindowDimensions();

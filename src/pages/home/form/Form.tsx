@@ -1,4 +1,4 @@
-import backgroundImgFull from "../../assets/bg-full.png";
+import backgroundImgFull from "../../../assets/bg-full.png";
 
 export default function Form() {
   return (

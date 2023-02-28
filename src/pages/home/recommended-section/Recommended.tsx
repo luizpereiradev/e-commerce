@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getProductsFromCategoryAndQuery } from "../../services/categories";
+import { getProductsFromCategoryAndQuery } from "../../../services/categories";
 import RecommendedCard from "./RecommendedCard";
 
 export default function Recommended() {
