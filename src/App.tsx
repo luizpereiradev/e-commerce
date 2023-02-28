@@ -1,24 +1,18 @@
-import CategorySection from "./components/category-section/CategorySection";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Header from "./components/header/Header";
-import OfferSection from "./components/offers-section/OfferSection";
-import Recommended from "./components/recommended-section/Recommended";
-import MainSection from "./components/main-section/MainSection";
-import Footer from "./components/footer/Footer";
-import Newsletter from "./components/newsletter/Newsletter";
-import Form from "./components/form/Form";
+import Home from "./pages/Home";
+import ProductDetails from "./pages/product-details/ProductDetails"
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Header>
-        <MainSection />
-        <OfferSection />
-        <CategorySection placeholder="Celulares e Telefones" category="MLB1055"/>
-        <CategorySection placeholder="Eletrodomésticos" category="MLB5726" />
-        <Form />
-        <Recommended />
+        <Routes>
+          <Route element={<Home />} path="/" />
+          <Route element={<ProductDetails />} path="/details/:id" />
+        </Routes>
       </Header>
-    </>
+    </BrowserRouter>
   );
 }
 
