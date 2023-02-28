@@ -29,7 +29,6 @@ function CategorySection({ category, placeholder } : { category: string, placeho
     .then((data) => setProducts(data.results))
   },[])
 
-  console.log(products)
   return (
     <section className="lg:flex lg:flex-row lg:w-full mt-3 lg:h-64 overflow-hidden rounded-lg">
       <div className="hidden relative lg:block w-[47.4%] bg-[url('./img/electronics.png')] bg-cover">

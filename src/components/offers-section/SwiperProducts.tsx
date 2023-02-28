@@ -1,10 +1,17 @@
+import { useNavigate } from "react-router-dom";
+
 export default function SwiperProducts({product, percentage}: {product: {
   thumbnail: string;
   title: string;
   price: number;
+  id: string;
 }, percentage : number}) {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/details/${product.id}`);
+  };
   return (
-    <div className="flex gap-2 flex-col border-t-[1px] lg:border-t-0 justify-center h-56 border-x-[1px] border-gray-200 items-center bg-white">
+    <div onClick={handleClick} className="cursor-pointer flex gap-2 flex-col border-t-[1px] lg:border-t-0 justify-center h-56 border-x-[1px] border-gray-200 items-center bg-white">
       <img
         src={product.thumbnail}
         alt="product"
