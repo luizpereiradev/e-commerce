@@ -9,13 +9,17 @@ import { Pagination, Navigation, FreeMode } from "swiper";
 import React, { useState } from "react";
 import { Swiper as TypeSwiper } from "swiper/types";
 
-function Main() {
+function Main({ product } : { product: {
+  thumbnail: string;
+  title: string;
+  price: number;
+  id: string;
+  pictures:{url: string}[];
+}}) {
   const [readMore, setReadMore] = useState(false);
   const [actualImg, setActualImg] = useState(0);
   const [thumbsSwiper, setThumbsSwiper] = useState<TypeSwiper>();
   const slideTo = (index: number) => thumbsSwiper?.slideTo(index);
-
-  const pictures = ["https://http2.mlstatic.com/D_690274-MLA48158423061_112021-O.jpg", "https://http2.mlstatic.com/D_970860-MLA48158406393_112021-O.jpg", "https://http2.mlstatic.com/D_917911-MLA48158357875_112021-O.jpg", "https://http2.mlstatic.com/D_693754-MLA48158406397_112021-O.jpg"];
 
   return (
     <section className="flex flex-col lg:justify-between md:mx-3 lg:mx-1 md:flex-row md:shadow md:rounded-lg md:overflow-hidden bg-white">
@@ -26,7 +30,7 @@ function Main() {
           modules={[Pagination, Navigation]}
           className="mainSwiper"
         >
-          {pictures.map((img) => (
+          { product.pictures.map(({url}) => url).map((img) => (
             <SwiperSlide className="flex items-center justify-center bg-white"><img className="h-72 mb-5" src={img} alt="Product Image" /></SwiperSlide>
           ))}
         </Swiper>
@@ -45,7 +49,7 @@ function Main() {
           onNavigationNext={ () => setActualImg(actualImg + 1)}
           onNavigationPrev={ () => setActualImg(actualImg - 1)}
         >
-          {pictures.map((img) => (
+          { product.pictures.map(({url}) => url).map((img) => (
             <SwiperSlide className="flex items-center justify-center"><img className="h-64" src={img} alt="Product Image" /></SwiperSlide>
           ))}
         </Swiper>
@@ -57,7 +61,7 @@ function Main() {
         modules={[FreeMode, Navigation]}
         className="mySwiper mt-3"
       >
-          {pictures.map((img, i) => (
+          { product.pictures.map(({url}) => url).map((img, i) => (
             <SwiperSlide onClick={() => { setActualImg(i); slideTo(i); }} className={` bg-white rounded-md py-1.5 flex justify-center border-solid border-[1px] ${actualImg === i && 'border-blue-500 boder-[2px]'}`}><img className="h-12" src={img} alt="Product Image" /></SwiperSlide>
           ))}
         </Swiper>
@@ -75,9 +79,9 @@ function Main() {
           <div><p className="flex items-center gap-1 text-sm font-light text-gray-500"><MdOutlineMessage size={18} />32 avaliações</p></div>
           <div><p className="flex items-center gap-1 text-sm font-light text-gray-500"><MdOutlineShoppingBasket size={18} />154 vendidos</p></div>
           </div>
-          <h3 className="text-gray-700 pt-2">Samsung Galaxy A32 Dual Sim 128 Gb Branco 4 Gb Ram</h3>
+          <h3 className="text-gray-700 pt-2">{product.title}</h3>
         </div>
-        <span className="flex items-center gap-2 pt-1"><h3 className="text-red-500 font-medium">R$1.471,08</h3><p className="font-light text-sm text-gray-400">(50-100 un)</p></span>
+        <span className="flex items-center gap-2 pt-1"><h3 className="text-red-500 font-medium">R${product.price}</h3><p className="font-light text-sm text-gray-400">(50-100 un)</p></span>
         <div className="flex items-center gap-2 pt-2">
           <button className="bg-blue-500 rounded-md py-1 px-auto w-full text-white">Adicionar ao carrinho</button>
           <div className="border-solid border-gray-200 border-[1.5px] p-1.5 rounded-md"><MdOutlineFavoriteBorder color="#0086ff" size={20} /></div>
