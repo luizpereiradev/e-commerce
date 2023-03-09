@@ -1,7 +1,8 @@
 import { useState } from "react";
-import {BsCheck2} from "react-icons/bs";
-export default function Tabs() {
+import {BsCheck2, BsChevronDown, BsChevronRight} from "react-icons/bs";
+export default function Tabs( { atributes }: { atributes: { name: string; value_name: string; }[] }) {
   const [toggleState, setToggleState] = useState(1);
+  const [esp, setEsp] = useState(false);
 
   const toggleTab = (index: number) => {
     setToggleState(index);
@@ -78,49 +79,27 @@ export default function Tabs() {
         >
           <h2>Content 1</h2>
           <hr />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-            praesentium incidunt quia aspernatur quasi quidem facilis quo nihil
-            vel voluptatum?
-          </p>
           <div className="w-full flex flex-col pt-6">
-            <div className="flex border-[1px] items-center border-gray-200">
-              <div className="w-1/4 bg-gray-100 ">
-                <h4 className=" p-1">Text</h4>
-              </div>
-              <div>
-                <p className="pl-2 ">Lorem Ipsum dolor</p>
-              </div>
-            </div>
-            <div className="flex border-[1px] items-center border-gray-200">
-              <div className="w-1/4 bg-gray-100 ">
-                <h4 className=" p-1">Text</h4>
-              </div>
-              <div>
-                <p className="pl-2 ">Lorem Ipsum dolor</p>
-              </div>
-            </div>
-            <div className="flex border-[1px] items-center border-gray-200">
-              <div className="w-1/4 bg-gray-100 ">
-                <h4 className=" p-1">Text</h4>
-              </div>
-              <div>
-                <p className="pl-2 ">Lorem Ipsum dolor</p>
-              </div>
-            </div>
-            <div className="flex border-[1px] items-center border-gray-200">
-              <div className="w-1/4 bg-gray-100 ">
-                <h4 className=" p-1">Text</h4>
-              </div>
-              <div>
-                <p className="pl-2 ">Lorem Ipsum dolor</p>
-              </div>
-            </div>
+            <button className="mb-2 flex items-center gap-3" onClick={() => setEsp(!esp)}>
+              Especificações Técnicas
+              {esp ? (<BsChevronDown size={20} />) : <BsChevronRight size={20}/>}
+            </button>
+            {
+            esp &&
+            atributes.map((atribute) => {
+              if(!atribute.value_name || !atribute.name) return null;
+              return (
+                <div className="flex border-[1px] items-center border-gray-200">
+                  <div className="w-1/4 min-w-[25%] bg-gray-100 ">
+                    <h4 className=" p-1">{atribute.name}</h4>
+                  </div>
+                  <div className="w-3/4">
+                    <p className="pl-2 w-full truncate ">{atribute.value_name}</p>
+                  </div>
+                </div>
+              )})
+            }
           </div>
-          <p className="flex items-center gap-1 pt-2"><span><BsCheck2/></span>Some great feature name here</p>
-          <p className="flex items-center gap-1 pt-2"><span><BsCheck2/></span>Some great feature name here</p>
-          <p className="flex items-center gap-1 pt-2"><span><BsCheck2/></span>Some great feature name here</p>
-          <p className="flex items-center gap-1 pt-2"><span><BsCheck2/></span>Some great feature name here</p>
         </div>
 
         <div

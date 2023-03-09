@@ -3,17 +3,16 @@ import Tabs from "./tabs/Tabs";
 import { useParams } from "react-router-dom";
 import { getProductFromId } from "../../services/categories";
 import { useEffect, useState } from "react";
+import { product } from "../../types";
 
 function ProductDetails() {
   const { id } = useParams();
-  const [product, setProduct] = useState();
+  const [product, setProduct] = useState<product>();
 
-  // assync function
   const getProduct = async () => {
     if (!id) return;
     const product = await getProductFromId(id);
     setProduct(product);
-    console.log(product);
   };
 
   useEffect(() => {
@@ -23,7 +22,7 @@ function ProductDetails() {
   if (product) return (
     <section>
       <Main product={product} />
-      <Tabs />
+      <Tabs atributes={product.attributes}/>
     </section>
   );
   return <div>Carregando...</div>;
