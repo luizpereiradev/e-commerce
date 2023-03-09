@@ -7,11 +7,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay } from "swiper";
 // import required modules
-import useWindowDimensions from "../../hooks/useWindowsDimension";
+import useWindowDimensions from "../../../hooks/useWindowsDimension";
 import SwiperProducts from "./SwiperProducts";
+import { getProductsFromCategoryAndQuery } from "../../../services/categories";
 
 export default function SecondSection() {
   const { width } = useWindowDimensions();
+  const [products, setProducts] = useState([]);
   const getSlidesPerViews = () => {
     if (width <= 320) return 2;
     if (width <= 640) return 3;
@@ -21,8 +23,15 @@ export default function SecondSection() {
   const [slidesPerView, setSlidesPerView] = useState(getSlidesPerViews());
   useEffect(() => {
     setSlidesPerView(getSlidesPerViews());
-    console.log(slidesPerView);
   }, [width]);
+
+  useEffect(() => {
+    getProductsFromCategoryAndQuery("MLB3937").then((data) => {
+      setProducts(data.results);
+    });
+  }, []);
+
+  const percentages = [30, 20, 20, 30, 40, 50, 40, 50]
 
   return (
     <div className="lg:flex rounded-lg overflow-hidden border-gray-200 border-[1px] w-full lg:h-56 sm:text-xl">
@@ -42,11 +51,10 @@ export default function SecondSection() {
           }}
           modules={[Autoplay]}
         >
-          {Array(8)
-            .fill("")
-            .map((_, x) => (
+          {products
+            .map((product, x) => (
               <SwiperSlide key={`${x}Offer`}>
-                <SwiperProducts />
+                <SwiperProducts percentage={percentages[x % percentages.length]} product={product}/>
               </SwiperSlide>
             ))}
         </Swiper>

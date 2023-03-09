@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useWindowDimensions from "../../hooks/useWindowsDimension";
+import useWindowDimensions from "../../../hooks/useWindowsDimension";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
@@ -8,9 +8,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 import ProductCard from "./ProductCard";
 // import required modules
+import {getProductsFromCategoryAndQuery} from '../../../services/categories'
 
-function CategorySection() {
+function CategorySection({ category, placeholder } : { category: string, placeholder: string }) {
   const { width } = useWindowDimensions();
+  const [products, setProducts] = useState([]);
   const getSlidesPerViews = () => {
     if (width <= 320) return 2;
     if (width <= 640) return 3;
@@ -22,13 +24,18 @@ function CategorySection() {
     setSlidesPerView(getSlidesPerViews());
   }, [width]);
 
+  useEffect(() => {
+    getProductsFromCategoryAndQuery(category)
+    .then((data) => setProducts(data.results))
+  },[])
+
   return (
     <section className="lg:flex lg:flex-row lg:w-full mt-3 lg:h-64 overflow-hidden rounded-lg">
       <div className="hidden relative lg:block w-[47.4%] bg-[url('./img/electronics.png')] bg-cover">
 
         <div className="flex flex-col w-[70%] p-4 gap-5 relative z-10">
           <h2 className="text-black font-medium text-xl">
-            Consumer electronics and gadgets
+            {placeholder}
           </h2>
           <button className="bg-white text-black rounded-xl w-32 py-2">Source now</button>
         </div>
@@ -37,14 +44,14 @@ function CategorySection() {
       <div className="lg:flex">
         <div className="bg-white lg:hidden">
           <h2 className="text-black font-medium p-3 text-xl">
-            Consumer electronics
+            {placeholder}
           </h2>
         </div>
         <div className="hidden lg:flex flex-wrap">
-          {Array(8)
-            .fill("")
-            .map((_, x) => (
-              <ProductCard key={x} />
+          {/* //renderizar apenas 8 produtos */}
+          {products.slice(0, 8)
+            .map((product, x) =>(
+              <ProductCard product={product} key={x} />
             ))}
         </div>
         <div className="lg:hidden">
@@ -55,11 +62,9 @@ function CategorySection() {
           }}
           modules={[Autoplay]}
           slidesPerView={slidesPerView}>
-            {Array(8)
-              .fill("")
-              .map((_, x) => (
+            {products.slice(0, 8).map((product, x) => (
                 <SwiperSlide key={`${x}category`}>
-                  <ProductCard />
+                  <ProductCard product={product} key={x} />
                 </SwiperSlide>
               ))}
           </Swiper>

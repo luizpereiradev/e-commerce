@@ -15,6 +15,7 @@ module.exports = {
   plugins: [
     require('daisyui'),
     require('tailwind-scrollbar'),
-    require('@shrutibalasa/tailwind-grid-auto-fit')
+    require('@shrutibalasa/tailwind-grid-auto-fit'),
+    require('@tailwindcss/line-clamp')
   ]
 }

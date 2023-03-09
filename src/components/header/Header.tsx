@@ -3,6 +3,7 @@ import { FiArchive, FiHeart, FiHome, FiMenu } from "react-icons/fi";
 import SearchInput from "./SearchInput";
 import Logo from "../../img/compra-certa.svg";
 import Footer from "../footer/Footer";
+import { Link } from "react-router-dom";
 function Header({ children }: { children: React.ReactNode }) {
   const categories = [
     "All",
@@ -48,9 +49,9 @@ function Header({ children }: { children: React.ReactNode }) {
                 </svg>
               </label>
             </div>
-            <div className="flex-1">
+            <Link to={'/'} className="flex-1">
               <img className="w-24 mx-2" src={Logo} />
-            </div>
+            </Link>
             <div className="hidden lg:block mr-[15%]">
               <SearchInput categories={categories} />
             </div>
