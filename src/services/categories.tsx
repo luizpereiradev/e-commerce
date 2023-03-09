@@ -1,14 +1,8 @@
-// https://api.mercadolibre.com/sites/MLB/categories
-// buscar categorias
-
-export const getCategories = async () => {
+export const getCategories = async (id : string) => {
   const response = await fetch('https://api.mercadolibre.com/sites/MLB/categories');
   const data = await response.json();
   return data;
 };
-
-// /sites/$SITE_ID/search%3Fcategory=$CATEGORY_ID
-// https://api.mercadolibre.com/sites/MLB/search?category=MLB1055
 
 export const getProductsFromCategoryAndQuery = async (categoryID: string, query?: string) => {
   const response = await fetch(`https://api.mercadolibre.com/sites/MLB/search?category=${categoryID}&${query && `q=${query}`}`);
@@ -16,9 +10,18 @@ export const getProductsFromCategoryAndQuery = async (categoryID: string, query?
   return data;
 }
 
+export const getDescriptionFromId = async (id: string) => {
+  const response = await fetch(`https://api.mercadolibre.com/items/${id}/description`);
+  const data = await response.json();
+  return data;
+}
+
 export const getProductFromId = async (id: string) => {
   const response = await fetch(`https://api.mercadolibre.com/items/${id}`);
   const data = await response.json();
-  return data;
+  const description = await getDescriptionFromId(id);
+  const category = await fetch(`https://api.mercadolibre.com/categories/${data.category_id}`)
+  console.log(category)
+  return { ...data, description };
 }
 

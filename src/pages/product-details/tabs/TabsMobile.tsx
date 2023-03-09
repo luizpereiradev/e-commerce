@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { BsCheck2 } from "react-icons/bs";
+import { BsCheck2, BsChevronRight, BsChevronDown } from "react-icons/bs";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-export default function Tabs() {
+export default function Tabs( { atributes }: { atributes: { name: string; value_name: string; }[] }) {
   const [toggleState, setToggleState] = useState(1);
+  const [esp, setEsp] = useState(false);
 
   const toggleTab = (index: number) => {
     setToggleState(index);
@@ -106,45 +107,30 @@ export default function Tabs() {
         >
           <h2>Content 1</h2>
           <hr />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-            praesentium incidunt quia aspernatur quasi quidem facilis quo nihil
-            vel voluptatum?
-          </p>
-          <div className="w-full flex flex-col pt-6">
-            <div className="flex border-[1px] items-center border-gray-200">
-              <div className="w-1/4 bg-gray-100 ">
-                <h4 className="text-sm p-1">Text</h4>
-              </div>
-              <div>
-                <p className="pl-2 text-sm">Lorem Ipsum dolor</p>
-              </div>
-            </div>
-            <div className="flex border-[1px] items-center border-gray-200">
-              <div className="w-1/4 bg-gray-100 ">
-                <h4 className="text-sm p-1">Text</h4>
-              </div>
-              <div>
-                <p className="pl-2 text-sm">Lorem Ipsum dolor</p>
-              </div>
-            </div>
-            <div className="flex border-[1px] items-center border-gray-200">
-              <div className="w-1/4 bg-gray-100 ">
-                <h4 className="text-sm p-1">Text</h4>
-              </div>
-              <div>
-                <p className="pl-2 text-sm">Lorem Ipsum dolor</p>
-              </div>
-            </div>
-            <div className="flex border-[1px] items-center border-gray-200">
-              <div className="w-1/4 bg-gray-100 ">
-                <h4 className="text-sm p-1">Text</h4>
-              </div>
-              <div>
-                <p className="pl-2 text-sm">Lorem Ipsum dolor</p>
-              </div>
-            </div>
+
+          <button className="flex items-center gap-3" onClick={() => setEsp(!esp)}>
+            Especificações Técnicas
+            {esp ? (<BsChevronDown size={20} />) : <BsChevronRight size={20}/>}
+          </button>
+          {
+            esp &&
+            <div className="w-full flex flex-col pt-6">
+            {
+              atributes.map((atribute) => {
+                if(!atribute.value_name || !atribute.name) return null;
+                return (
+                  <div className="flex border-[1px] items-center border-gray-200">
+                  <div className="min-w-[25%] w-1/4 bg-gray-100 ">
+                    <h4 className="text-sm p-1">{atribute.name}</h4>
+                  </div>
+                  <div>
+                    <p className="pl-2 text-sm">{atribute.value_name}</p>
+                  </div>
+                </div>
+              )})
+            }
           </div>
+          }
           <p className="flex items-center gap-1 pt-2">
             <span>
               <BsCheck2 />

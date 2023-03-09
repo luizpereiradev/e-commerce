@@ -8,14 +8,9 @@ import "swiper/css/free-mode";
 import { Pagination, Navigation, FreeMode } from "swiper";
 import React, { useState } from "react";
 import { Swiper as TypeSwiper } from "swiper/types";
+import { product as productType } from "../../../types";
 
-function Main({ product } : { product: {
-  thumbnail: string;
-  title: string;
-  price: number;
-  id: string;
-  pictures:{url: string}[];
-}}) {
+function Main({ product } : {product: productType}) {
   const [readMore, setReadMore] = useState(false);
   const [actualImg, setActualImg] = useState(0);
   const [thumbsSwiper, setThumbsSwiper] = useState<TypeSwiper>();
@@ -89,20 +84,15 @@ function Main({ product } : { product: {
         <div className={`flex items-center justify-start gap-12 ${readMore && 'hidden'}`}>
           <p className="flex flex-col pt-4 gap-1">
             <span className="text-gray-400 font-light">Condição</span>
-            <span className="text-gray-400 font-light">Material</span>
-            <span className="text-gray-400 font-light">Categoria</span>
             <span className="text-gray-400 font-light">ID do Produto</span>
           </p>
           <p className="flex flex-col pt-4 gap-1">
             <span className="text-gray-700 font-light">Novo</span>
-            <span className="text-gray-700 font-light">Plastico</span>
-            <span className="text-gray-700 font-light">Eletrônicos, Smartphones</span>
-            <span className="text-gray-700 font-light">MLB2081672291</span>
+            <span className="text-gray-700 font-light">{product.id}</span>
           </p>
         </div>
         <div className="pt-4">
-          <p className={`text-gray-700 font-light overflow-auto h-[194px] ${!readMore && 'line-clamp-3 h-[70px]'}`}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur mollitia iusto pariatur ducimus sequi dolor, sit commodi temporibus. Repudiandae iste ex repellat animi quod commodi nisi tenetur consequuntur, qui eligendi earum dolores nemo eaque vero sequi impedit veritatis cumque sit debitis error ea sapiente! Facilis aspernatur id tenetur magnam, iusto praesentium mollitia. Aut minus facilis dicta dolores quibusdam a, cum sequi. ipsum dolor sit amet consectetur adipisicing elit. Consequatur mollitia iusto pariatur ducimus sequi dolor, sit commodi temporibus. Repudiandae iste ex repellat animi quod commodi nisi tenetur consequuntur, qui eligendi earum dolores nemo eaque vero sequi impedit veritatis cumque sit debitis error ea sapiente! Facilis aspernatur id tenetur magnam, iusto praesentium mollitia. Aut minus facilis dicta dolores quibusdam a, cum sequi.
-          </p>
+          <p className={`text-gray-700 font-light overflow-auto h-[194px] ${!readMore && 'line-clamp-3 h-[70px]'}`}>{product.description.plain_text}</p>
           <span onClick={() => setReadMore(!readMore)} className="text-blue-500 block pt-1 font-medium cursor-pointer hover:text-blue-800 select-none">{!readMore ? 'Ler mais' : 'Ler menos'}</span>
         </div>
       </div>
