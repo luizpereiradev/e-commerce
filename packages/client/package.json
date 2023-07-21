@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@tailwindcss/line-clamp": "^0.4.2",
-    "commitizen": "^4.3.0",
     "daisyui": "^2.50.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -25,7 +24,6 @@
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@vitejs/plugin-react": "^3.1.0",
     "autoprefixer": "^10.4.13",
-    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.34.0",
     "eslint-config-standard-with-typescript": "^34.0.0",
     "eslint-plugin-import": "^2.27.5",
@@ -37,10 +35,5 @@
     "tailwindcss": "^3.2.6",
     "typescript": "^4.9.5",
     "vite": "^4.1.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
