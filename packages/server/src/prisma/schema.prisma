@@ -1,16 +1,49 @@
+datasource db {
+  provider = "mysql" 
+  url      = env("DATABASE_URL")
+}
+
 generator client {
   provider = "prisma-client-js"
 }
 
-datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+// Entidade para representar os produtos no e-commerce
+model Product {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  price       Float
+  imageUrl    String
+  categories  Category[] // Relação com a entidade Categoria (um produto pode estar em várias categorias)
+  orders      Order[]   @relation("ProductOrders") 
 }
 
-model user {
-  id         Int     @id @default(autoincrement())
-  firstName  String
-  lastName   String
-  email      String  @unique
-  occupation String?
+// Entidade para representar as categorias dos produtos
+model Category {
+  id         Int         @id @default(autoincrement())
+  name       String
+  parent     Category?   @relation("SubCategories", fields: [parentId], references: [id])
+  parentId   Int?
+  products   Product[]   // Relação com a entidade Produto (uma categoria pode ter vários produtos)
+  subCategories Category[] @relation("SubCategories") // Relação com as subcategorias
+}
+
+// Entidade para representar os usuários do e-commerce
+model User {
+  id       Int      @id @default(autoincrement())
+  email    String   @unique
+  name     String
+  password String
+  orders   Order[]  @relation("UserOrders")
+  isAdmin  Boolean   @default(false) // Campo para indicar se o usuário é administrador ou não
+}
+
+// Entidade para representar os pedidos feitos no e-commerce
+model Order {
+  id          Int       @id @default(autoincrement())
+  user        User      @relation("UserOrders", fields: [userId], references: [id])
+  userId      Int
+  products    Product[] @relation("ProductOrders") 
+  totalPrice  Float
+  createdAt   DateTime  @default(now())
 }
