@@ -47,7 +47,12 @@ export default class UserController {
     const { email, name, password, isAdmin } = req.body as IUserCreateRequest;
 
     try {
-      const newUser = await this._service.create({ email, name, password, isAdmin });
+      const newUser = await this._service.create({
+        email,
+        name,
+        password,
+        isAdmin,
+      });
 
       res.status(201).json(newUser);
 
@@ -64,11 +69,15 @@ export default class UserController {
 
     if (isNaN(id)) return next(new BadRequest("invalid id"));
 
-    const { email, name, password, isAdmin } =
-      req.body as IUserUpdateRequest;
+    const { email, name, password, isAdmin } = req.body as IUserUpdateRequest;
 
     try {
-      const updatedUser = await this._service.update(id, { email, name, password, isAdmin });
+      const updatedUser = await this._service.update(id, {
+        email,
+        name,
+        password,
+        isAdmin,
+      });
 
       res.status(200).json(updatedUser);
 
@@ -98,19 +107,19 @@ export default class UserController {
     }
   };
 
-    public login: RequestHandler = async (req, res, next) => {
-        const { email, password } = req.body;
+  public login: RequestHandler = async (req, res, next) => {
+    const { email, password } = req.body;
 
-        try {
-            const token = await this._service.login(email, password);
+    try {
+      const token = await this._service.login(email, password);
 
-            res.status(200).json(token);
+      res.status(200).json(token);
 
-            Logger.save("login() success");
-        } catch (error) {
-            Logger.save("login() fail");
+      Logger.save("login() success");
+    } catch (error) {
+      Logger.save("login() fail");
 
-            next(error);
-        }
+      next(error);
     }
+  };
 }
