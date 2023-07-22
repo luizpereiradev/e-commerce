@@ -1,7 +1,10 @@
-import { IUser, IUserCreateRequest, IUserUpdateRequest } from "../interfaces/IUser";
+import { IUser, IUserCreateRequest, IUserUpdateRequest, IUserToken } from "../interfaces/IUser";
 import { Conflict } from "../utils/errors/Conflict";
 import { NotFound } from "../utils/errors/NotFound";
+import { Unauthorized } from "../utils/errors/Unauthorized";
+import JwtToken from "../utils/jwtToken";
 import UserRepository from "./repository";
+import bcrypt from "bcryptjs";
 
 export default class UserService {
   private _repository: UserRepository;
@@ -27,6 +30,8 @@ export default class UserService {
 
     if (userExists) throw new Conflict("user already exists");
 
+    newUser.password = await bcrypt.hash(newUser.password, 10);
+
     return this._repository.create(newUser);
   }
 
@@ -44,5 +49,21 @@ export default class UserService {
     if (!user) throw new NotFound("user not found");
 
     return this._repository.delete(id);
+  }
+
+  public async login(email: string, password: string): Promise<IUserToken> {
+    const jwtToken = new JwtToken();
+    const user = await this._repository.getByEmail(email);
+
+    if (!user) throw new NotFound("user not found");
+
+    const passwordMatch = await bcrypt.compare(password, user.password);
+
+    if (!passwordMatch) throw new Unauthorized("password does not match");
+
+    return {
+        token: jwtToken.sign({ id: user.id }),
+        expiresAt: new Date(Date.now() + 86400000) // 1 day
+    };
   }
 }

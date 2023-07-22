@@ -97,4 +97,20 @@ export default class UserController {
       next(error);
     }
   };
+
+    public login: RequestHandler = async (req, res, next) => {
+        const { email, password } = req.body;
+
+        try {
+            const token = await this._service.login(email, password);
+
+            res.status(200).json(token);
+
+            Logger.save("login() success");
+        } catch (error) {
+            Logger.save("login() fail");
+
+            next(error);
+        }
+    }
 }
