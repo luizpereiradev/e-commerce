@@ -14,5 +14,4 @@ export interface IOrderCreateRequest {
   totalPrice: number;
 }
 
-export interface IOrderUpdateRequest extends Partial<IOrderCreateRequest> {
-}
+export type IOrderUpdateRequest = Partial<IOrderCreateRequest>

@@ -40,6 +40,12 @@ export default class UserService {
 
     if (!user) throw new NotFound("user not found");
 
+    if(payload.email && user.email !== payload.email) {
+      const userExists = await this._repository.getByEmail(payload.email);
+      if(userExists) throw new Conflict("email already exists");
+    }
+
+
     return this._repository.update(id, payload);
   }
 

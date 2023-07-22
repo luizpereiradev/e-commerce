@@ -11,7 +11,7 @@ export interface IUserCreateRequest extends IUserLoginRequest {
 }
 
 // Interface para representar os dados atualizados do usuário
-export interface IUserUpdateRequest extends Partial<IUserCreateRequest> {}
+export type IUserUpdateRequest = Partial<IUserCreateRequest>
 
 // Interface para representar os dados completos do usuário, incluindo os dados criados
 export interface IUser extends IUserCreateRequest {

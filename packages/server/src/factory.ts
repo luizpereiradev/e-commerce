@@ -4,6 +4,10 @@ import UserController from './user/controller';
 import UserRepository from './user/repository';
 import UserRouter from './user/router';
 import UserService from './user/service';
+import CategoryRepository from './category/repository';
+import CategoryService from './category/service';
+import CategoryController from './category/controller';
+import CategoryRouter from './category/router';
 
 export default class Factory {
   private static _prisma = new PrismaClient();
@@ -15,5 +19,14 @@ export default class Factory {
     const userRouter = new UserRouter(Router(), userController);
 
     return userRouter.router;
+  }
+
+  public static get categoryRouter() {
+    const categoryRepository = new CategoryRepository(Factory._prisma);
+    const categoryService = new CategoryService(categoryRepository);
+    const categoryController = new CategoryController(categoryService);
+    const categoryRouter = new CategoryRouter(Router(), categoryController);
+
+    return categoryRouter.router;
   }
 }

@@ -17,5 +17,4 @@ export interface IProductCreateRequest {
   categories: number[]; // Array de IDs de categorias às quais o produto pertence
 }
 
-export interface IProductUpdateRequest extends Partial<IProductCreateRequest> {
-}
+export type IProductUpdateRequest = Partial<IProductCreateRequest>

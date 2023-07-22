@@ -11,3 +11,22 @@
 21/07/2023, 22:15:40: login() fail
 22/07/2023, 14:19:10: getAll() fail
 22/07/2023, 14:21:04: getAll() success
+22/07/2023, 15:11:51: category getAll() success
+22/07/2023, 15:12:59: getById() success
+22/07/2023, 15:13:20: category getById() fail
+22/07/2023, 15:15:07: category create() success
+22/07/2023, 15:15:35: category create() success
+22/07/2023, 15:15:43: category getById() success
+22/07/2023, 15:17:10: category delete() success
+22/07/2023, 15:17:51: category update() fail
+22/07/2023, 15:17:53: category update() success
+22/07/2023, 15:18:13: category update() success
+22/07/2023, 15:20:33: create() fail
+22/07/2023, 15:20:36: create() success
+22/07/2023, 15:21:06: update() fail
+22/07/2023, 15:21:18: update() success
+22/07/2023, 15:22:54: update() success
+22/07/2023, 15:22:55: update() success
+22/07/2023, 15:22:59: update() fail
+22/07/2023, 15:23:20: delete() fail
+22/07/2023, 15:23:24: delete() success
