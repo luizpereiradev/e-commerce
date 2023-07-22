@@ -1,9 +1,8 @@
-import express from "express";
+import app from './app';
 
-const server = express();
+const PORT = 3000;
 
-server.get("/", (request, response) => {
-  return response.send("Hello!");
+app.listen(PORT, () => {
+  console.log('Server online');
+  console.log(`PORT ${PORT}`);
 });
-
-export default server;

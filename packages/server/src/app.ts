@@ -1,3 +1,13 @@
-import server from "./server";
+import express from 'express';
+import Factory from './factory';
+import Middlewares from './middlewares/User';
 
-server.listen(8001);
+const app = express();
+
+app.use(express.json());
+
+app.use('/user', Factory.userRouter);
+
+app.use(Middlewares.error);
+
+export default app;
