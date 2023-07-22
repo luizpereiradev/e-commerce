@@ -9,3 +9,5 @@
 21/07/2023, 22:13:31: login() success
 21/07/2023, 22:13:37: getAll() success
 21/07/2023, 22:15:40: login() fail
+22/07/2023, 14:19:10: getAll() fail
+22/07/2023, 14:21:04: getAll() success
