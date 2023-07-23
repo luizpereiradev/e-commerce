@@ -39,3 +39,20 @@
 22/07/2023, 16:35:03: category create() success
 22/07/2023, 16:35:08: category getAll() success
 22/07/2023, 16:35:41: getAll() success
+23/07/2023, 15:52:02: product getAll() fail
+23/07/2023, 15:53:45: product getAll() success
+23/07/2023, 15:54:26: login() fail
+23/07/2023, 15:54:33: login() fail
+23/07/2023, 15:54:37: login() fail
+23/07/2023, 15:57:35: login() fail
+23/07/2023, 15:58:14: delete() success
+23/07/2023, 15:58:16: delete() success
+23/07/2023, 15:58:19: getAll() success
+23/07/2023, 15:58:29: create() success
+23/07/2023, 15:59:05: login() success
+23/07/2023, 16:01:23: product create() fail
+23/07/2023, 16:01:27: product create() success
+23/07/2023, 16:01:34: product getAll() success
+23/07/2023, 16:01:47: product getById() success
+23/07/2023, 16:02:37: product update() success
+23/07/2023, 16:02:46: product getAll() success

@@ -6,7 +6,7 @@ export interface IProduct {
   description: string;
   price: number;
   imageUrl: string;
-  categories: ICategory[];
+  categories?: ICategory[];
 }
 
 export interface IProductCreateRequest {
@@ -14,7 +14,7 @@ export interface IProductCreateRequest {
   description: string;
   price: number;
   imageUrl: string;
-  categories: number[]; // Array de IDs de categorias às quais o produto pertence
+  categories: number[];
 }
 
 export type IProductUpdateRequest = Partial<IProductCreateRequest>

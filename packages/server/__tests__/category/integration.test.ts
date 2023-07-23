@@ -246,9 +246,9 @@ describe("testes /categories", () => {
       });
     });
   });
-  
-  describe("DELETE /user/:id", () => {
-    describe("caso o usuário exista", () => {
+
+  describe("DELETE /categories/:id", () => {
+    describe("caso a categoria exista", () => {
       before(() => {
         sinon
           .stub(CategoryRepository.prototype, "delete")
@@ -280,7 +280,7 @@ describe("testes /categories", () => {
       });
     });
 
-    describe("caso o usuário não exista", () => {
+    describe("caso a categoria não exista", () => {
       before(() => {
         sinon
           .stub(CategoryRepository.prototype, "delete")

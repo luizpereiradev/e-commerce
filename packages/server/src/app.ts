@@ -13,6 +13,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 app.use('/user', Factory.userRouter);
 app.use('/categories', Factory.categoryRouter);
+app.use('/products', Factory.productRouter);
 
 app.use(Middlewares.error);
 
