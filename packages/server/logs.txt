@@ -30,3 +30,12 @@
 22/07/2023, 15:22:59: update() fail
 22/07/2023, 15:23:20: delete() fail
 22/07/2023, 15:23:24: delete() success
+22/07/2023, 16:33:48: category getById() success
+22/07/2023, 16:33:59: category getById() fail
+22/07/2023, 16:34:10: category create() success
+22/07/2023, 16:34:14: category getById() fail
+22/07/2023, 16:34:16: category getById() success
+22/07/2023, 16:34:21: category getAll() success
+22/07/2023, 16:35:03: category create() success
+22/07/2023, 16:35:08: category getAll() success
+22/07/2023, 16:35:41: getAll() success
