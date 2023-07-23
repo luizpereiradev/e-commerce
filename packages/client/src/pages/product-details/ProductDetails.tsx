@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { getProductFromId } from "../../services/categories";
 import { useEffect, useState } from "react";
 import { product } from "../../types";
+import Header from "../../components/header/Header";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -19,12 +20,15 @@ function ProductDetails() {
     getProduct();
   }, [id]);
 
-  if (product) return (
-    <section>
-      <Main product={product} />
-      <Tabs atributes={product.attributes}/>
-    </section>
-  );
+  if (product)
+    return (
+      <Header>
+        <section>
+          <Main product={product} />
+          <Tabs atributes={product.attributes} />
+        </section>
+      </Header>
+    );
   return <div>Carregando...</div>;
 }
 

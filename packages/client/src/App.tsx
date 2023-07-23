@@ -1,17 +1,16 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Header from "./components/header/Header";
 import Home from "./pages/home/Home";
-import ProductDetails from "./pages/product-details/ProductDetails"
+import ProductDetails from "./pages/product-details/ProductDetails";
+import Login from "./pages/login/Login";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header>
-        <Routes>
-          <Route element={<Home />} path="/" />
-          <Route element={<ProductDetails />} path="/details/:id" />
-        </Routes>
-      </Header>
+      <Routes>
+        <Route element={<Home />} path="/" />
+        <Route element={<ProductDetails />} path="/details/:id" />
+        <Route element={<Login />} path="/login" />
+      </Routes>
     </BrowserRouter>
   );
 }

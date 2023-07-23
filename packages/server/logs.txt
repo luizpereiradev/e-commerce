@@ -56,3 +56,18 @@
 23/07/2023, 16:01:47: product getById() success
 23/07/2023, 16:02:37: product update() success
 23/07/2023, 16:02:46: product getAll() success
+23/07/2023, 17:16:22: login() success
+23/07/2023, 17:19:34: product getAll() success
+23/07/2023, 17:20:02: product getAll() success
+23/07/2023, 17:21:48: product getAll() success
+23/07/2023, 17:21:49: product getAll() success
+23/07/2023, 17:21:53: product getAll() success
+23/07/2023, 17:22:11: product getAll() success
+23/07/2023, 17:26:37: login() fail
+23/07/2023, 17:27:45: login() fail
+23/07/2023, 17:30:28: login() fail
+23/07/2023, 17:38:40: login() fail
+23/07/2023, 17:42:59: login() success
+23/07/2023, 17:43:38: login() success
+23/07/2023, 18:12:37: login() success
+23/07/2023, 18:13:21: login() success

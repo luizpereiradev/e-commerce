@@ -2,12 +2,14 @@ import express from 'express';
 import Factory from './factory';
 import Middlewares from './middlewares/User';
 import swaggerUi from 'swagger-ui-express'
+import cors from 'cors'
 
 import swaggerDocument from '../swagger.json'
 
 const app = express();
 
 app.use(express.json());
+app.use(cors())
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 

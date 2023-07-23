@@ -12,6 +12,9 @@ module.exports = {
       }
     }
   },
+  daisyui: {
+    themes: ['light']
+  },
   plugins: [
     require('daisyui'),
     require('tailwind-scrollbar'),
