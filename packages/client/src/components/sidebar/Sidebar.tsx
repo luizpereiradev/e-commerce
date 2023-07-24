@@ -24,7 +24,7 @@ interface SidebarItem {
   describe: string;
   subitems: {
     label: string;
-    icon: JSX.Element; // Add icon property for each subitem
+    icon: JSX.Element; 
   }[];
 }
 const sidebarItems: SidebarItem[] = [
@@ -127,7 +127,7 @@ function Sidebar() {
                   href="#"
                   className="flex p-2 w-11/12 rounded-md text-sm text-gray-700 hover:bg-gray-200"
                 >
-                  {subitem.icon} {/* Render the icon here */}
+                  {subitem.icon}
                   <span className="ml-4 font-semibold">{subitem.label}</span>
                 </a>
               ))}

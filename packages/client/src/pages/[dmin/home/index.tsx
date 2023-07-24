@@ -1,6 +1,7 @@
 import { FiBell, FiShoppingCart, FiUsers } from "react-icons/fi";
 import DashboardTile from "../../../components/DashboardTile";
 import Sidebar from "../../../components/sidebar/Sidebar";
+import DashboardUpdates from "../../../components/dashboard/updates/DashboardUpdates";
 
 function Dashboard() {
   return (
@@ -28,6 +29,7 @@ function Dashboard() {
               trend="+ 20%"
             />
           </div>
+          <DashboardUpdates />
         </div>
       </div>
     </>
