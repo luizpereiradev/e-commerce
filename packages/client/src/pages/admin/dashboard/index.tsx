@@ -2,6 +2,7 @@ import { FiBell, FiShoppingCart, FiUsers } from "react-icons/fi";
 import DashboardTile from "../../../components/dashboard/DashboardTile";
 import Sidebar from "../../../components/sidebar/Sidebar";
 import DashboardUpdates from "../../../components/dashboard/updates/DashboardUpdates";
+import DashboardChart from "../../../components/dashboard/DashboardChart";
 
 function Dashboard() {
   return (
@@ -29,7 +30,10 @@ function Dashboard() {
               trend="+ 20%"
             />
           </div>
-          <div className="flex w-full">
+          <div className="w-full flex justify-center">
+            <div className="bg-white h-[87%] w-[760px] px-5 mb-12 mt-8 rounded-md shadow-lg">
+             <DashboardChart />
+            </div>
             <DashboardUpdates />
           </div>
         </div>

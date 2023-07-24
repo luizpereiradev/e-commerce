@@ -9,7 +9,7 @@ const DashboardTile = ({ icon, value, title, trend }: DashboardTileProps) => {
   // vermelho se for negativo, verde se for positivo
   const trendColor = trend.startsWith("+") ? "#6EE7B7" : "#FCA5A5";
   return (
-    <div className="flex items-center p-4 bg-white rounded">
+    <div className="flex items-center p-4 bg-white rounded shadow-lg">
       <div
         style={{
           background: trendColor,
