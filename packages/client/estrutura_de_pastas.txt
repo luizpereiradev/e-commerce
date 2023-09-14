@@ -1,0 +1,76 @@
+.
+├── estrutura_de_pastas.txt
+├── global.d.ts
+├── index.html
+├── node_modules
+├── package.json
+├── postcss.config.cjs
+├── public
+│   └── vite.svg
+├── src
+│   ├── App.tsx
+│   ├── assets
+│   │   └── bg-full.png
+│   ├── components
+│   │   ├── DashboardTile.tsx
+│   │   ├── DashboardUpdates.tsx
+│   │   ├── Input.tsx
+│   │   ├── footer
+│   │   │   └── Footer.tsx
+│   │   ├── header
+│   │   │   ├── CartDrop.tsx
+│   │   │   ├── Header.tsx
+│   │   │   └── SearchInput.tsx
+│   │   ├── newsletter
+│   │   │   └── Newsletter.tsx
+│   │   └── sidebar
+│   │       └── Sidebar.tsx
+│   ├── hooks
+│   │   └── useWindowsDimension.tsx
+│   ├── img
+│   │   ├── compra-certa.svg
+│   │   └── electronics.png
+│   ├── index.css
+│   ├── main.tsx
+│   ├── pages
+│   │   ├── [admin]
+│   │   │   └── home
+│   │   │       └── index.tsx
+│   │   ├── home
+│   │   │   ├── Home.tsx
+│   │   │   ├── category-section
+│   │   │   │   ├── CategorySection.tsx
+│   │   │   │   └── ProductCard.tsx
+│   │   │   ├── form
+│   │   │   │   └── Form.tsx
+│   │   │   ├── main-section
+│   │   │   │   ├── Image.tsx
+│   │   │   │   ├── MainSection.tsx
+│   │   │   │   └── categories.ts
+│   │   │   ├── offers-section
+│   │   │   │   ├── Countdown.tsx
+│   │   │   │   ├── OfferSection.tsx
+│   │   │   │   └── SwiperProducts.tsx
+│   │   │   └── recommended-section
+│   │   │       ├── Recommended.tsx
+│   │   │       └── RecommendedCard.tsx
+│   │   ├── login
+│   │   │   └── Login.tsx
+│   │   └── product-details
+│   │       ├── ProductDetails.tsx
+│   │       ├── main
+│   │       │   └── Main.tsx
+│   │       └── tabs
+│   │           ├── Tabs.tsx
+│   │           ├── TabsDesktop.tsx
+│   │           └── TabsMobile.tsx
+│   ├── services
+│   │   └── categories.tsx
+│   ├── types.tsx
+│   └── vite-env.d.ts
+├── tailwind.config.cjs
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
+
+25 directories, 48 files

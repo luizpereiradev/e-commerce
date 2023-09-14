@@ -1,0 +1,74 @@
+21/07/2023, 21:23:14: getAll() success
+21/07/2023, 21:24:29: create() success
+21/07/2023, 21:24:45: create() fail
+21/07/2023, 21:54:06: create() success
+21/07/2023, 22:01:57: login() success
+21/07/2023, 22:02:29: login() success
+21/07/2023, 22:05:30: login() success
+21/07/2023, 22:13:16: login() success
+21/07/2023, 22:13:31: login() success
+21/07/2023, 22:13:37: getAll() success
+21/07/2023, 22:15:40: login() fail
+22/07/2023, 14:19:10: getAll() fail
+22/07/2023, 14:21:04: getAll() success
+22/07/2023, 15:11:51: category getAll() success
+22/07/2023, 15:12:59: getById() success
+22/07/2023, 15:13:20: category getById() fail
+22/07/2023, 15:15:07: category create() success
+22/07/2023, 15:15:35: category create() success
+22/07/2023, 15:15:43: category getById() success
+22/07/2023, 15:17:10: category delete() success
+22/07/2023, 15:17:51: category update() fail
+22/07/2023, 15:17:53: category update() success
+22/07/2023, 15:18:13: category update() success
+22/07/2023, 15:20:33: create() fail
+22/07/2023, 15:20:36: create() success
+22/07/2023, 15:21:06: update() fail
+22/07/2023, 15:21:18: update() success
+22/07/2023, 15:22:54: update() success
+22/07/2023, 15:22:55: update() success
+22/07/2023, 15:22:59: update() fail
+22/07/2023, 15:23:20: delete() fail
+22/07/2023, 15:23:24: delete() success
+22/07/2023, 16:33:48: category getById() success
+22/07/2023, 16:33:59: category getById() fail
+22/07/2023, 16:34:10: category create() success
+22/07/2023, 16:34:14: category getById() fail
+22/07/2023, 16:34:16: category getById() success
+22/07/2023, 16:34:21: category getAll() success
+22/07/2023, 16:35:03: category create() success
+22/07/2023, 16:35:08: category getAll() success
+22/07/2023, 16:35:41: getAll() success
+23/07/2023, 15:52:02: product getAll() fail
+23/07/2023, 15:53:45: product getAll() success
+23/07/2023, 15:54:26: login() fail
+23/07/2023, 15:54:33: login() fail
+23/07/2023, 15:54:37: login() fail
+23/07/2023, 15:57:35: login() fail
+23/07/2023, 15:58:14: delete() success
+23/07/2023, 15:58:16: delete() success
+23/07/2023, 15:58:19: getAll() success
+23/07/2023, 15:58:29: create() success
+23/07/2023, 15:59:05: login() success
+23/07/2023, 16:01:23: product create() fail
+23/07/2023, 16:01:27: product create() success
+23/07/2023, 16:01:34: product getAll() success
+23/07/2023, 16:01:47: product getById() success
+23/07/2023, 16:02:37: product update() success
+23/07/2023, 16:02:46: product getAll() success
+23/07/2023, 17:16:22: login() success
+23/07/2023, 17:19:34: product getAll() success
+23/07/2023, 17:20:02: product getAll() success
+23/07/2023, 17:21:48: product getAll() success
+23/07/2023, 17:21:49: product getAll() success
+23/07/2023, 17:21:53: product getAll() success
+23/07/2023, 17:22:11: product getAll() success
+23/07/2023, 17:26:37: login() fail
+23/07/2023, 17:27:45: login() fail
+23/07/2023, 17:30:28: login() fail
+23/07/2023, 17:38:40: login() fail
+23/07/2023, 17:42:59: login() success
+23/07/2023, 17:43:38: login() success
+23/07/2023, 18:12:37: login() success
+23/07/2023, 18:13:21: login() success
+23/07/2023, 18:35:16: login() success

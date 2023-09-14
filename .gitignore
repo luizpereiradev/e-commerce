@@ -1,24 +1,47 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# Ignore arquivos de configuração do editor
+.vscode/
+.idea/
 
-node_modules
-dist
-dist-ssr
-*.local
+# Ignore os diretórios de dependências de pacotes individuais
+/node_modules/
+/packages/*/node_modules/
+/yarn.lock
+/packages/*/yarn.lock
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# Ignore os diretórios de construção e saída
+/packages/*/dist/
+/packages/*/build/
+/packages/*/out/
+
+# Ignore arquivos temporários
+/packages/*/temp/
+/packages/*/tmp/
+
+# Ignore os arquivos de cobertura de testes
+/packages/*/coverage/
+
+# Ignore os arquivos de configuração de ferramentas e cache
+/packages/*/package-lock.json
+/packages/*/npm-debug.log
+/packages/*/yarn-error.log
+/packages/*/tsconfig.tsbuildinfo
+
+# Ignore arquivos de ambiente local
+/packages/*/env.local
+/packages/*/env.development.local
+/packages/*/env.production.local
+
+# Ignore arquivos gerados automaticamente (pode variar dependendo do tipo de projeto)
+/packages/*/generated/
+/packages/*/*.log
+/packages/*/*.tmp
+/packages/*/node_modules
+
+# Adicione outras regras específicas para o seu monorepo aqui
+
+# Arquivos gerais a serem ignorados
+/node_modules/
+/dist/
+/.cache/
+/.env
+/yarn-error.log
